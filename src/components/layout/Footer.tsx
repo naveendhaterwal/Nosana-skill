@@ -36,9 +36,9 @@ export function Footer() {
             <h3 className="font-heading font-semibold mb-4 text-foreground">Nosana</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="https://nosana.com" target="_blank" className="hover:text-primary transition-colors">Website</Link></li>
-              <li><Link href="https://docs.nosana.com" target="_blank" className="hover:text-primary transition-colors">Network Docs</Link></li>
+              <li><Link href="https://docs.nosana.com" target="_blank" className="hover:text-primary transition-colors">Nosana Docs</Link></li>
               <li><Link href="https://discord.com/invite/nosana" target="_blank" className="hover:text-primary transition-colors">Discord</Link></li>
-              <li><Link href="https://twitter.com/nosana_ci" target="_blank" className="hover:text-primary transition-colors">Twitter (X)</Link></li>
+              <li><Link href="https://x.com/nosana_ai" target="_blank" className="hover:text-primary transition-colors">Twitter (X)</Link></li>
             </ul>
           </div>
         </div>
