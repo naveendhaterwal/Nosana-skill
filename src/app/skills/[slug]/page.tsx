@@ -4,13 +4,12 @@ import { getSkills, getSkillBySlug, SKILL_ICONS } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Download, Terminal, ChevronRight, CheckCircle2, Copy } from "lucide-react";
+import { Terminal, ChevronRight, CheckCircle2, Copy } from "lucide-react";
 import Link from "next/link";
 import { SkillCard } from "@/components/skills/SkillCard";
 import { SkillInstallTabs } from "@/components/skills/SkillInstallTabs";
 import { SecurityScanBadge } from "@/components/skills/SecurityScanBadge";
 import { buildInstallCommand } from "@/lib/command";
-import { getSkillDownloadUrl } from "@/lib/registry";
 
 // Need to dynamically access params in Next.js 15
 export default async function SkillDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -61,10 +60,6 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ sl
                       {skill.category}
                     </Badge>
                     <div className="flex items-center text-sm text-muted-foreground border-l border-white/10 pl-3 font-mono">
-                      <Download className="h-4 w-4 mr-1.5 text-primary/70" />
-                      {skill.downloads.toLocaleString()} installs
-                    </div>
-                    <div className="flex items-center text-sm text-muted-foreground border-l border-white/10 pl-3 font-mono">
                       Complexity: <span className="bg-primary/10 text-primary px-2 py-0.5 rounded border border-primary/20 ml-2 font-medium">{skill.complexity}</span>
                     </div>
                   </div>
@@ -73,9 +68,7 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ sl
 
               <SkillInstallTabs 
                 skillSlug={skill.slug} 
-                skillType={skill.skillType || "app"}
                 installCommand={buildInstallCommand(skill.slug)}
-                downloadUrl={getSkillDownloadUrl(skill.slug, skill.skillType || "app")}
               />
             </div>
           </div>
@@ -180,9 +173,7 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ sl
               
               <SkillInstallTabs 
                 skillSlug={skill.slug} 
-                skillType={skill.skillType || "app"}
                 installCommand={buildInstallCommand(skill.slug)}
-                downloadUrl={getSkillDownloadUrl(skill.slug, skill.skillType || "app")}
               />
 
               <div className="mt-8">

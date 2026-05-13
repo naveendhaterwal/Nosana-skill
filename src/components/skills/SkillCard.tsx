@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Download } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skill, SKILL_ICONS } from "@/lib/data";
@@ -41,10 +40,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
         </CardContent>
         
         <CardFooter className="px-6 py-4 border-t border-white/10 bg-white/5 flex justify-between items-center relative z-10">
-          <div className="flex items-center text-xs text-muted-foreground font-mono">
-            <Download className="h-3.5 w-3.5 mr-1.5 text-primary/70" />
-            {skill.downloads.toLocaleString()}
-          </div>
+          <div></div>
           <div className="text-xs font-medium text-primary font-mono bg-primary/10 px-2 py-1 rounded border border-primary/20">
             {skill.complexity}
           </div>
