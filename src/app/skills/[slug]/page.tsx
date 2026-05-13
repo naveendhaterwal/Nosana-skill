@@ -13,6 +13,24 @@ import { buildInstallCommand } from "@/lib/command";
 import { getSkillDownloadUrl } from "@/lib/registry";
 
 // Need to dynamically access params in Next.js 15
+
+const CONVERSATIONAL_PROMPTS: Record<string, string> = {
+  "analyze-ai-project": "analyze my AI app for Nosana deployment.",
+  "debug-nosana-deployment": "debug my failed Nosana deployment.",
+  "deploy-ai-agent": "deploy my AI agent to Nosana.",
+  "deploy-ai-project": "deploy my AI project to Nosana.",
+  "deploy-persistent-api": "deploy my persistent AI API.",
+  "recommend-gpu-market": "find the cheapest GPU market for my AI model.",
+  "network-monitor": "monitor Nosana network status.",
+  "node-operator": "monitor and manage my Nosana node.",
+  "nosana-ai-deployment-operator": "manage my AI deployment lifecycle.",
+  "nosana-deployment-architect": "design an optimized Nosana deployment.",
+  "nosana-failure-recovery-operator": "recover my failed deployment automatically.",
+  "nosana-market-analyst": "analyze Nosana GPU market trends.",
+  "nosana-persistent-service-operator": "manage my persistent AI services.",
+  "skill-composer": "compose a complete Nosana deployment workflow."
+};
+
 export default async function SkillDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   const skill = await getSkillBySlug(resolvedParams.slug);
@@ -182,15 +200,13 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ sl
               />
 
               <div className="mt-8">
-                <p className="text-muted-foreground mb-4">Example execution workflow:</p>
+                <p className="text-muted-foreground mb-4">AI Usage Prompt Example:</p>
                 <div className="bg-card border border-border/50 rounded-xl p-1 overflow-hidden">
                   <div className="bg-muted/30 px-4 py-2 border-b border-border/50">
-                    <span className="text-xs font-mono text-muted-foreground">Example Run</span>
+                    <span className="text-xs font-mono text-muted-foreground">Tell the AI what to do</span>
                   </div>
-                  <div className="p-4 space-y-2 font-mono text-sm">
-                    <div className="text-foreground"><span className="text-primary">npx</span> nos-skill@beta run nos/{skill.slug} \\</div>
-                    <div className="text-muted-foreground ml-4">--input repo="https://github.com/my/app" \\</div>
-                    <div className="text-muted-foreground ml-4">--input framework="vLLM"</div>
+                  <div className="p-4 font-mono text-sm text-foreground/90 leading-relaxed">
+                    "Use this skill ({skill.slug}) to {CONVERSATIONAL_PROMPTS[skill.slug] || "help me with my task."}"
                   </div>
                 </div>
               </div>
