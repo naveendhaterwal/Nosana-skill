@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
-            <Image src="/logo.svg" alt="Nosana Logo" width={110} height={32} className="h-8 w-auto mb-4" />
+            <Image src="/logo-white.svg" alt="Nosana Logo" width={110} height={32} className="h-8 w-auto mb-4" />
             <p className="text-sm text-muted-foreground max-w-xs">
               The App Store for AI deployment intelligence. Discover, install, and reuse operational skills for the Nosana Network.
             </p>
