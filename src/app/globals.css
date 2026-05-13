@@ -1,1 +1,84 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 120 100% 41%; /* #00D100 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 120 100% 41%;
+    --radius: 0rem; /* Nosana uses sharp corners */
+  }
+
+  .dark {
+    --background: 131 85% 2.5%; /* #010C04 */
+    --foreground: 210 20% 98%;
+    --card: 131 30% 6%; /* Slight green tint for cards */
+    --card-foreground: 210 20% 98%;
+    --popover: 131 30% 6%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 119 90% 48%; /* #10E80C */
+    --primary-foreground: 131 85% 2.5%;
+    --secondary: 131 20% 10%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 131 20% 10%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 131 20% 10%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 131 20% 18%;
+    --input: 131 20% 18%;
+    --ring: 119 90% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+/* Custom premium utility classes for Nosana marketplace */
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(16, 232, 12, 0.4);
+  }
+  .card-glow:hover {
+    box-shadow: 0 0 30px rgba(16, 232, 12, 0.15);
+    border-color: rgba(16, 232, 12, 0.5);
+  }
+  .bg-grid-pattern {
+    background-size: 50px 50px;
+    background-image: linear-gradient(to right, rgba(16, 232, 12, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(16, 232, 12, 0.07) 1px, transparent 1px);
+  }
+  .bg-dot-pattern {
+    background-image: radial-gradient(rgba(16, 232, 12, 0.2) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
