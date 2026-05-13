@@ -43,10 +43,10 @@ export function MarketplaceClient({
   }, [initialSkills, query, activeCategory]);
 
   return (
-    <div className="flex flex-1 overflow-hidden relative z-10">
+    <div className="flex flex-col md:flex-row flex-1 relative z-10 items-stretch">
       {/* Sidebar / Filters */}
-      <aside className="w-full md:w-64 flex-shrink-0 flex flex-col border-r border-white/5 bg-black/20">
-        <div className="p-6 overflow-y-auto flex-1 space-y-8">
+      <aside className="w-full md:w-64 flex-shrink-0 border-r border-white/5 bg-black/20">
+        <div className="p-6 space-y-8 md:sticky md:top-24">
           <div>
             <h3 className="font-heading font-semibold text-foreground mb-4 flex items-center gap-2">
               <SlidersHorizontal className="h-4 w-4 text-primary" />
@@ -110,8 +110,8 @@ export function MarketplaceClient({
         </div>
       </aside>
 
-      {/* Main Content Scrollable Area */}
-      <div className="flex-1 overflow-y-auto p-6 md:p-8 relative">
+      {/* Main Content Area */}
+      <div className="flex-1 p-6 md:p-8 relative">
         <div className="max-w-6xl mx-auto">
           <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/5">
             <p className="text-sm text-muted-foreground font-mono">

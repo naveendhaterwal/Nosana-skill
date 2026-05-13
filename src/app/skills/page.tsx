@@ -12,9 +12,9 @@ export default async function MarketplacePage({
   const skills = await getSkills();
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 bg-background pt-24 relative overflow-hidden flex flex-col">
+      <main className="flex-1 bg-background pt-24 relative flex flex-col">
         {/* Decorative elements */}
         <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent opacity-50 pointer-events-none" />
@@ -35,6 +35,7 @@ export default async function MarketplacePage({
           initialQuery={searchParams.q}
         />
       </main>
+      <Footer />
     </div>
   );
 }

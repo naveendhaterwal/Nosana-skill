@@ -53,7 +53,7 @@ export function HeroSection() {
             <Link href="/install">
               <Button size="lg" variant="outline" className="h-14 px-10 text-lg border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all rounded-full group">
                 <Terminal className="mr-2 h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                Install CLI
+                Install All Skills
               </Button>
             </Link>
           </div>
