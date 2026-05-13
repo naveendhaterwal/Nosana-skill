@@ -4,12 +4,13 @@ import { getSkills, getSkillBySlug, SKILL_ICONS } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Terminal, ChevronRight, CheckCircle2, Copy } from "lucide-react";
+import { Download, Terminal, ChevronRight, CheckCircle2, Copy } from "lucide-react";
 import Link from "next/link";
 import { SkillCard } from "@/components/skills/SkillCard";
 import { SkillInstallTabs } from "@/components/skills/SkillInstallTabs";
 import { SecurityScanBadge } from "@/components/skills/SecurityScanBadge";
 import { buildInstallCommand } from "@/lib/command";
+import { getSkillDownloadUrl } from "@/lib/registry";
 
 // Need to dynamically access params in Next.js 15
 export default async function SkillDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -68,7 +69,9 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ sl
 
               <SkillInstallTabs 
                 skillSlug={skill.slug} 
+                skillType={skill.skillType || "app"}
                 installCommand={buildInstallCommand(skill.slug)}
+                downloadUrl={getSkillDownloadUrl(skill.slug, skill.skillType || "app")}
               />
             </div>
           </div>
@@ -173,7 +176,9 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ sl
               
               <SkillInstallTabs 
                 skillSlug={skill.slug} 
+                skillType={skill.skillType || "app"}
                 installCommand={buildInstallCommand(skill.slug)}
+                downloadUrl={getSkillDownloadUrl(skill.slug, skill.skillType || "app")}
               />
 
               <div className="mt-8">
