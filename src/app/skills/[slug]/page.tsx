@@ -198,7 +198,7 @@ export default async function SkillDetailPage({ params }: { params: Promise<{ sl
           </div>
 
           {/* SIDEBAR */}
-          <aside className="w-full lg:w-80 flex-shrink-0 space-y-8">
+          <aside className="w-full lg:w-80 flex-shrink-0 space-y-8 lg:sticky lg:top-24 h-fit">
             <SecurityScanBadge 
               trustLevel={skill.trustLevel} 
               compatibility={skill.compatibility} 

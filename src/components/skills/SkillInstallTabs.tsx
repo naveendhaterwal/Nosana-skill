@@ -33,8 +33,10 @@ export function SkillInstallTabs({ skillSlug, installCommand, downloadUrl }: Ski
       a.download = `${skillSlug}-SKILL.md`;
       document.body.appendChild(a);
       a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
+      setTimeout(() => {
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      }, 1000);
     } catch (err) {
       console.error("Download failed", err);
     }
