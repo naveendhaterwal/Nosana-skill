@@ -21,25 +21,13 @@ export function SkillInstallTabs({ skillSlug, installCommand, downloadUrl }: Ski
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleDownload = async () => {
-    try {
-      const response = await fetch(downloadUrl);
-      if (!response.ok) throw new Error("Failed to fetch markdown");
-      const text = await response.text();
-      const blob = new Blob([text], { type: "text/markdown" });
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `${skillSlug}-SKILL.md`;
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(() => {
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-      }, 1000);
-    } catch (err) {
-      console.error("Download failed", err);
-    }
+  const handleDownload = () => {
+    const a = document.createElement("a");
+    a.href = downloadUrl;
+    a.download = `${skillSlug}-SKILL.md`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
 
   return (
